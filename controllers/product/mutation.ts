@@ -1,6 +1,7 @@
 import productModel from "../../models/product.model";
+import { Request, Response } from "express";
 
-const createProduct = async (req: any, res: any) => {
+const createProduct = async (req: Request, res: Response) => {
   try {
     const { name, description, category, price, stock } = req.body;
 
@@ -24,7 +25,7 @@ const createProduct = async (req: any, res: any) => {
   }
 };
 
-const deleteProduct = async (req: any, res: any) => {
+const deleteProduct = async (req: Request, res: Response) => {
   try {
     const productId = req.params.id;
     const productExist = await productModel.findById(productId);
@@ -48,7 +49,7 @@ const deleteProduct = async (req: any, res: any) => {
   }
 };
 
-const updateProduct = async (req: any, res: any) => {
+const updateProduct = async (req: Request, res: Response) => {
   try {
     const productId = req.params.id;
     const productExist = await productModel.findById(productId);

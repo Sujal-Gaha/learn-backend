@@ -1,7 +1,8 @@
 import todoModel from "../../models/todo.model";
 import TErrorResponse from "../../type/TErrorResponse";
+import { Request, Response } from "express";
 
-const getAllTodo = async (req: Request, res: any) => {
+const getAllTodo = async (req: Request, res: Response) => {
   try {
     const todos = await todoModel.find();
 
@@ -25,7 +26,7 @@ const getAllTodo = async (req: Request, res: any) => {
   }
 };
 
-const getTodoByid = async (req: any, res: any) => {
+const getTodoByid = async (req: Request, res: Response) => {
   try {
     const todoId = req.params.id;
     const todoExist = await todoModel.findById(todoId);

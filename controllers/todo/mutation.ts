@@ -1,7 +1,8 @@
 import todoModel from "../../models/todo.model";
 import TErrorResponse from "../../type/TErrorResponse";
+import { Request, Response } from "express";
 
-const addTodo = async (req: any, res: any) => {
+const addTodo = async (req: Request, res: Response) => {
   try {
     const { title, description } = req.body;
 
@@ -27,7 +28,7 @@ const addTodo = async (req: any, res: any) => {
   }
 };
 
-const deleteTodo = async (req: any, res: any) => {
+const deleteTodo = async (req: Request, res: Response) => {
   try {
     const todoId = req.params.id;
     const todoExist = await todoModel.findById(todoId);
@@ -54,7 +55,7 @@ const deleteTodo = async (req: any, res: any) => {
   }
 };
 
-const updateTodo = async (req: any, res: any) => {
+const updateTodo = async (req: Request, res: Response) => {
   try {
     const todoId = req.params.id;
     const todoExist = await todoModel.findById(todoId);
@@ -81,7 +82,7 @@ const updateTodo = async (req: any, res: any) => {
   }
 };
 
-const toggleTodoCompletion = async (req: any, res: any) => {
+const toggleTodoCompletion = async (req: Request, res: Response) => {
   try {
     const todoId = req.params.id;
     const todoExist = await todoModel.findById(todoId);
@@ -109,7 +110,7 @@ const toggleTodoCompletion = async (req: any, res: any) => {
   }
 };
 
-const deleteAll = async (req: any, res: any) => {
+const deleteAll = async (req: Request, res: Response) => {
   try {
     const todos = await todoModel.find();
 

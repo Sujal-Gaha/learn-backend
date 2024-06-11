@@ -13,7 +13,7 @@ setupDb()
   .then(() => {
     app.listen(PORT, () => console.log("Server started at port " + PORT));
   })
-  .catch((error) => console.log("Error ", error.message));
+  .catch((error) => console.log("Error: ", error.message));
 
 //routes
 app.use("/api/v1/product", productRoute);

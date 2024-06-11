@@ -11,7 +11,7 @@ const todoSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
-      minLength: 20,
+      minLength: 8,
       maxLength: 100,
     },
     completed: {
