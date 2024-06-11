@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import setupDb from "./db.js";
 import express from "express";
 import productRoute from "./routes/product.route.js";
+import todoRoute from "./routes/todo.route.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
@@ -18,3 +19,4 @@ setupDb()
 //routes
 
 app.use("/api/v1/product", productRoute);
+app.use("/api/v1/todo", todoRoute);
