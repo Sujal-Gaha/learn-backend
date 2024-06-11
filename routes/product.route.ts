@@ -1,6 +1,6 @@
 import express from "express";
-import productMutation from "../controllers/product/mutation.js";
-import productQuery from "../controllers/product/query.js";
+import productMutation from "../controllers/product/mutation";
+import productQuery from "../controllers/product/query";
 
 const router = express.Router();
 

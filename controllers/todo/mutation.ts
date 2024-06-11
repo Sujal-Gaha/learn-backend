@@ -1,6 +1,7 @@
-import todoModel from "../../models/todo.model.js";
+import todoModel from "../../models/todo.model";
+import TErrorResponse from "../../type/TErrorResponse";
 
-const addTodo = async (req, res) => {
+const addTodo = async (req: any, res: any) => {
   try {
     const { title, description } = req.body;
 
@@ -15,16 +16,18 @@ const addTodo = async (req, res) => {
       message: "Added todo successfully!",
       success: true,
     });
-  } catch (error) {
-    res.status(500).json({
+  } catch (error: any) {
+    const errorResponse: TErrorResponse = {
       data: null,
       message: error.message || "Internal server error",
       success: false,
-    });
+    };
+
+    res.status(500).json(errorResponse);
   }
 };
 
-const deleteTodo = async (req, res) => {
+const deleteTodo = async (req: any, res: any) => {
   try {
     const todoId = req.params.id;
     const todoExist = await todoModel.findById(todoId);
@@ -40,16 +43,18 @@ const deleteTodo = async (req, res) => {
       message: `Deleted the todo with id: ${todoId} successfully!`,
       success: true,
     });
-  } catch (error) {
-    res.status(500).json({
+  } catch (error: any) {
+    const errorResponse: TErrorResponse = {
       data: null,
       message: error.message || "Internal server error",
       success: false,
-    });
+    };
+
+    res.status(500).json(errorResponse);
   }
 };
 
-const updateTodo = async (req, res) => {
+const updateTodo = async (req: any, res: any) => {
   try {
     const todoId = req.params.id;
     const todoExist = await todoModel.findById(todoId);
@@ -65,16 +70,18 @@ const updateTodo = async (req, res) => {
       message: "Updated todo successfully!",
       success: true,
     });
-  } catch (error) {
-    res.status(500).json({
+  } catch (error: any) {
+    const errorResponse: TErrorResponse = {
       data: null,
       message: error.message || "Internal server error",
       success: false,
-    });
+    };
+
+    res.status(500).json(errorResponse);
   }
 };
 
-const toggleTodoCompletion = async (req, res) => {
+const toggleTodoCompletion = async (req: any, res: any) => {
   try {
     const todoId = req.params.id;
     const todoExist = await todoModel.findById(todoId);
@@ -91,16 +98,18 @@ const toggleTodoCompletion = async (req, res) => {
       message: `Updated the todo with id: ${todoId} successfully!`,
       success: true,
     });
-  } catch (error) {
-    res.status(500).json({
+  } catch (error: any) {
+    const errorResponse: TErrorResponse = {
       data: null,
       message: error.message || "Internal server error",
       success: false,
-    });
+    };
+
+    res.status(500).json(errorResponse);
   }
 };
 
-const deleteAll = async (req, res) => {
+const deleteAll = async (req: any, res: any) => {
   try {
     const todos = await todoModel.find();
 
@@ -115,12 +124,14 @@ const deleteAll = async (req, res) => {
       message: "Deleted all the todo",
       success: true,
     });
-  } catch (error) {
-    res.status(500).json({
+  } catch (error: any) {
+    const errorResponse: TErrorResponse = {
       data: null,
       message: error.message || "Internal server error",
       success: false,
-    });
+    };
+
+    res.status(500).json(errorResponse);
   }
 };
 

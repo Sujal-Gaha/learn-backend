@@ -1,6 +1,6 @@
-import productModel from "../../models/product.model.js";
+import productModel from "../../models/product.model";
 
-const createProduct = async (req, res) => {
+const createProduct = async (req: any, res: any) => {
   try {
     const { name, description, category, price, stock } = req.body;
 
@@ -15,7 +15,7 @@ const createProduct = async (req, res) => {
       message: "Created product successfully!",
       success: true,
     });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({
       data: null,
       message: error.message || "Internal server error!",
@@ -24,7 +24,7 @@ const createProduct = async (req, res) => {
   }
 };
 
-const deleteProduct = async (req, res) => {
+const deleteProduct = async (req: any, res: any) => {
   try {
     const productId = req.params.id;
     const productExist = await productModel.findById(productId);
@@ -39,7 +39,7 @@ const deleteProduct = async (req, res) => {
       message: `Deleted the product with id: ${productId} successfully!`,
       success: true,
     });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({
       data: null,
       message: error.message || "Internal Server Error",
@@ -48,7 +48,7 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-const updateProduct = async (req, res) => {
+const updateProduct = async (req: any, res: any) => {
   try {
     const productId = req.params.id;
     const productExist = await productModel.findById(productId);
@@ -63,7 +63,7 @@ const updateProduct = async (req, res) => {
       message: "Updated the product successfully!",
       success: true,
     });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).json({
       data: null,
       message: error.message || "Internal server error",
