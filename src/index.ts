@@ -1,8 +1,9 @@
 import dotenv from "dotenv";
 import setupDb from "./db";
 import express from "express";
-import productRoute from "../routes/product.route";
-import todoRoute from "../routes/todo.route";
+import productRoute from "./routes/product.route";
+import todoRoute from "./routes/todo.route";
+import bookRoute from "./routes/book.route";
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
@@ -18,3 +19,4 @@ setupDb()
 //routes
 app.use("/api/v1/product", productRoute);
 app.use("/api/v1/todo", todoRoute);
+app.use("/api/v1/book", bookRoute);
