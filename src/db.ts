@@ -6,7 +6,9 @@ const setupDb = async () => {
     if (!MONGO_URI) {
       throw new Error("MONGO_URI not found in .env");
     }
+
     console.log("Connecting...");
+
     await mongoose.connect(MONGO_URI);
     console.log("Connected to the Database!");
   } catch (error: any) {
